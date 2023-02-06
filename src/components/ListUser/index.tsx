@@ -52,7 +52,15 @@ export const ListUser = ({ page }: any) => {
             onChange={(e: any) => setInputSearch(e.target.value)}
           />
         </Search>
-        <ListUserStyled>{filterListUser}</ListUserStyled>
+        <ListUserStyled>
+          {filterListUser !== undefined && filterListUser.length > 0 ? (
+            filterListUser
+          ) : (
+            <div>
+              <b>Can Not Find User With Full Name Is: {`${inputSearch}`}</b>
+            </div>
+          )}
+        </ListUserStyled>
       </div>
     </>
   );
